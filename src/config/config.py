@@ -1,5 +1,6 @@
 import os
 from dataclasses import dataclass
+
 from dotenv import load_dotenv
 
 
@@ -32,13 +33,14 @@ def load_config(path: str | None = None) -> Config:
         test=TestDB(
             test=os.getenv('TEST_DB').lower() in (1, 'true')
         )
-
     )
 
 
+# Шаблоны для тестовой БД
 templates = [
     {"name": "MyForm", "user_name": "text", "order_date": "date"},
     {"name": "OrderForm", "user_name": "text", "lead_email": "email"},
     {"name": "FeedbackForm", "user_name": "text", "email": "email", "phone": "phone"},
-    {"name": "SurveyForm", "user_name": "text", "age": "text", "feedback": "text"}
+    {"name": "SurveyForm", "user_name": "text", "age": "text", "feedback": "text"},
+    {"name": "MyFormMore", "user_name": "text", "order_date": "date", "age": "text"}
 ]

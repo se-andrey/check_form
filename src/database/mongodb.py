@@ -3,7 +3,6 @@ from fastapi import HTTPException
 
 from src.config.config import Config, load_config, templates
 
-
 config: Config = load_config()
 
 db_name = config.db.db_name
@@ -11,9 +10,7 @@ db_collection = config.db.db_collection
 
 
 async def dump_test_base():
-
     """Если включен режим создания тестовай БД, то проверяем ее наличие и создаем, если ее нет"""
-
     if config.test.test:
         try:
             client = pymongo.MongoClient(config.db.url)
